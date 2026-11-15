@@ -88,3 +88,12 @@ h2 {
 .status.ok { color: #9fd3a8; }
 .status.error { color: #f0a090; }
 .site-footer a { color: var(--muted); }
+.contact-form select {
+  width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--panel); color: var(--text); font: inherit; font-size: 16px;
+}
+.contact-form select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+.account-fields { display: grid; gap: 18px; padding: 16px; border: 1px dashed var(--line); border-radius: 8px; }
+.account-fields[hidden], .contact-form [hidden] { display: none; }
+.from-game { margin: 0; padding: 12px 16px; border-left: 3px solid var(--sea); background: var(--panel); border-radius: 4px; }
+.contact-form .note { margin: 0; font-size: .88rem; color: var(--muted); }

@@ -19,9 +19,51 @@
     <h2 id="contact-title">お問い合わせ</h2>
     <p class="lead-left">ゲームについてのご質問・不具合のご報告・その他のご連絡は、こちらからお送りください。返信は入力いただいたメールアドレスへお送りします。</p>
     <form id="contact" class="contact-form" novalidate>
+      <label>お問い合わせの種類
+        <select name="category" required>
+          <option value="">選んでください</option>
+          <option value="bug">不具合の報告</option>
+          <option value="account">アカウント・記録（ログイン・引き継ぎ・記録が消えた）</option>
+          <option value="purchase">購入・課金</option>
+          <option value="howto">遊び方の質問</option>
+          <option value="idea">ご意見・ご要望</option>
+          <option value="other">その他</option>
+        </select>
+      </label>
+      <label>遊んでいる環境
+        <select name="platform" required>
+          <option value="">選んでください</option>
+          <option value="ios">iPhone・iPad</option>
+          <option value="android">Android</option>
+          <option value="pc">パソコン（ブラウザ）</option>
+          <option value="steam">Steam</option>
+          <option value="other">その他・わからない</option>
+        </select>
+      </label>
       <label>お名前（任意）<input name="name" type="text" maxlength="80" autocomplete="name"></label>
       <label>メールアドレス<input name="email" type="email" maxlength="200" autocomplete="email" required></label>
+
+      <!-- ゲームの設定から開いた時は、アカウントID・ログイン方法・ゲームの版が自動で入る -->
+      <p id="from-game" class="from-game" hidden>ゲームから開いたので、<strong>アカウントID・ログイン方法・ゲームの版</strong>を添えてお送りします。</p>
+      <div id="manual-account" class="account-fields">
+        <label>ログイン方法
+          <select name="login">
+            <option value="">選んでください</option>
+            <option value="guest">ゲスト</option>
+            <option value="google">Google</option>
+            <option value="apple">Apple ID</option>
+            <option value="email">メールアドレス</option>
+            <option value="unknown">わからない</option>
+          </select>
+        </label>
+        <label>アカウントID（任意）<input name="account" type="text" maxlength="36" autocomplete="off" spellcheck="false" placeholder="例: 0f8fad5b-d9cb-469f-a165-70867728950e"></label>
+        <p class="note">アカウントIDは、ゲームの「設定」→「自動化・データ」→「お問い合わせ」からこのページを開くと自動で入ります。</p>
+      </div>
+      <input name="version" type="hidden">
+
+      <label id="occurred-row" hidden>起きた日時（わかれば）<input name="occurred" type="datetime-local"></label>
       <label>お問い合わせ内容<textarea name="message" rows="8" maxlength="4000" required></textarea></label>
+      <p id="hint" class="note"></p>
       <!-- 機械だけが埋める隠し欄。人には見えない -->
       <label class="hp" aria-hidden="true">ウェブサイト<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
       <p class="note">入力いただいた内容は、返信と対応のためにだけ使います。詳しくは<a href="https://soulking.deadsea-games.com/legal.html#privacy">プライバシーポリシー</a>をご覧ください。パスワードなどの秘密の情報は書かないでください。</p>
