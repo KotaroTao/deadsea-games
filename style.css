@@ -38,8 +38,7 @@ a:hover { color: #9ad6d2; }
   border-bottom: 1px solid var(--line-soft);
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--gold); flex-shrink: 0; }
-.brand img { width: 34px; height: 34px; }
-.brand span { font-size: 1rem; letter-spacing: .14em; white-space: nowrap; }
+.brand img { width: auto; height: 46px; mix-blend-mode: lighten; } /* 起動ロゴと同じ絵。黒地を帯になじませる */
 .brand:hover { color: var(--gold); }
 .site-nav ul { display: flex; gap: clamp(14px, 2.6vw, 32px); list-style: none; margin: 0; padding: 0; }
 .site-nav ul a { color: var(--muted); text-decoration: none; font-size: .92rem; letter-spacing: .12em; padding: 6px 0; border-bottom: 1px solid transparent; white-space: nowrap; }
@@ -259,7 +258,7 @@ a:hover { color: #9ad6d2; }
 /* ---------- スマホ ---------- */
 @media (max-width: 760px) {
   :root { font-size: 16px; --header-h: 54px; }
-  .brand span { display: none; }
+  .brand img { height: 30px; }
   .site-nav ul { gap: 18px; }
   .site-nav ul a { font-size: .86rem; letter-spacing: .06em; }
   .work { grid-template-columns: 1fr; }
@@ -284,6 +283,8 @@ a:hover { color: #9ad6d2; }
   .game-title .en { letter-spacing: .16em; padding-left: .16em; }
 }
 @media (max-width: 400px) {
+  .site-nav { gap: 10px; padding: 0 12px; }
+  .brand img { height: 26px; }
   .site-nav ul { gap: 13px; }
   .site-nav ul a { font-size: .8rem; letter-spacing: .02em; }
 }
@@ -314,3 +315,9 @@ a:hover { color: #9ad6d2; }
 /* 見つからないページ */
 .lost { min-height: 70vh; display: grid; place-items: center; text-align: center; padding: 60px 20px; }
 .lost h1 { margin: 0 0 12px; font-size: clamp(1.4rem, 4vw, 2rem); color: var(--gold); letter-spacing: .2em; }
+@media (max-width: 360px) {
+  .site-nav { padding: 0 10px; }
+  .brand img { height: 22px; }
+  .site-nav ul { gap: 10px; }
+  .site-nav ul a { font-size: .74rem; letter-spacing: 0; }
+}
