@@ -259,6 +259,7 @@ a:hover { color: #9ad6d2; }
 @media (max-width: 760px) {
   :root { font-size: 16px; --header-h: 54px; }
   .brand img { height: 30px; }
+  .site-nav .wide-only { display: none; }
   .site-nav ul { gap: 18px; }
   .site-nav ul a { font-size: .86rem; letter-spacing: .06em; }
   .work { grid-template-columns: 1fr; }
@@ -450,4 +451,26 @@ body.cinema::after {
 @media (prefers-reduced-motion: no-preference) {
   .play-big .ring { animation: pulse 2.8s ease-in-out infinite; }
   @keyframes pulse { 50% { box-shadow: 0 0 0 14px rgba(216, 197, 155, .04), 0 0 70px rgba(216, 160, 80, .45); } }
+}
+
+/* ---------- 遊びの奥行き (実際の画面と解説を交互に) ---------- */
+.system .wrap { max-width: 1180px; }
+.sys-row { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(28px, 4.5vw, 64px); align-items: center; }
+.sys-row + .sys-row { margin-top: clamp(56px, 9vw, 110px); }
+.sys-row.flip .sys-shot { order: 2; }
+.sys-shot { position: relative; margin: 0; border-radius: 8px; overflow: hidden; background: #000;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, .7), 0 0 0 1px rgba(216, 197, 155, .22); transform: perspective(1600px) rotateY(-4deg); }
+.sys-row.flip .sys-shot { transform: perspective(1600px) rotateY(4deg); }
+.sys-shot img { width: 100%; height: auto; }
+.sys-shot figcaption { position: absolute; left: 12px; bottom: 12px; padding: 2px 12px; border-radius: 99px; background: rgba(7, 9, 12, .82);
+  border: 1px solid rgba(216, 197, 155, .35); color: var(--gold); font-size: .76rem; letter-spacing: .12em; }
+.sys-num { display: block; font-size: clamp(2.4rem, 5.6vw, 3.8rem); line-height: 1.1; font-weight: 700; letter-spacing: .02em;
+  background: linear-gradient(180deg, #fff3d4, #d8c59b 55%, #8f7246); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sys-num small { font-size: .38em; margin-left: .3em; -webkit-text-fill-color: var(--gold-deep); letter-spacing: .14em; }
+.sys-text h3 { margin: 10px 0 14px; font-size: clamp(1.25rem, 2.6vw, 1.7rem); color: var(--gold); letter-spacing: .12em; line-height: 1.5; }
+.sys-text p { margin: 0 0 1em; color: #d5ccb8; }
+@media (max-width: 860px) {
+  .sys-row, .sys-row.flip { grid-template-columns: 1fr; gap: 20px; }
+  .sys-row.flip .sys-shot { order: 0; }
+  .sys-shot, .sys-row.flip .sys-shot { transform: none; }
 }
