@@ -34,7 +34,7 @@ a:hover { color: #9ad6d2; }
   position: sticky; top: 0; z-index: 50; height: var(--header-h);
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 0 clamp(16px, 4vw, 40px);
-  background: rgba(7, 9, 12, .82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  background: rgba(7, 9, 12, .86);
   border-bottom: 1px solid var(--line-soft);
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--gold); flex-shrink: 0; }
@@ -166,7 +166,7 @@ a:hover { color: #9ad6d2; }
 .stats li + li { border-left: 1px solid var(--line-soft); }
 .stats strong { font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.2; color: var(--gold); font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
 .stats strong small { font-size: .45em; margin-left: 3px; color: var(--gold-deep); letter-spacing: .1em; }
-.stats span { font-size: .86rem; color: var(--muted); letter-spacing: .12em; }
+.stats li > span { font-size: .86rem; color: var(--muted); letter-spacing: .12em; }
 
 /* ---------- 実際の画面に添える札 ---------- */
 .feature-art { position: relative; margin: 0; }
@@ -320,4 +320,119 @@ a:hover { color: #9ad6d2; }
   .brand img { height: 22px; }
   .site-nav ul { gap: 10px; }
   .site-nav ul a { font-size: .74rem; letter-spacing: 0; }
+}
+
+/* =====================================================================
+   作品ページの「超大作」の見せ方 (扉・語り・予告編・物語の大判・物量・発売の幕)
+   ===================================================================== */
+
+/* 画面全体の粒子 (フィルムの粒)。押す操作は通す */
+body.cinema::after {
+  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---------- 扉 ---------- */
+.epic { min-height: 100vh; min-height: 100svh; padding: calc(var(--header-h) + clamp(24px, 6vh, 64px)) 20px clamp(40px, 7vh, 80px); }
+.epic::before {
+  background:
+    radial-gradient(ellipse 120% 90% at 50% 45%, rgba(7, 9, 12, 0) 40%, rgba(7, 9, 12, .85) 100%),
+    linear-gradient(180deg, rgba(7, 9, 12, .65) 0%, rgba(7, 9, 12, 0) 26%, rgba(7, 9, 12, 0) 55%, rgba(7, 9, 12, .55) 78%, var(--bg) 100%);
+}
+.epic .hero-art picture, .epic .hero-art img { display: block; width: 100%; height: 100%; }
+.epic .hero-art img { object-fit: cover; object-position: 50% 50%; }
+.epic { margin-top: calc(-1 * var(--header-h)); } /* 帯の下まで絵を広げる */
+.embers { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
+.kicker { margin: 0 0 18px; font-size: clamp(.66rem, 1.4vw, .8rem); letter-spacing: .6em; padding-left: .6em; text-transform: uppercase; color: rgba(230, 224, 210, .7); text-shadow: 0 2px 10px #000; }
+.game-title .pre { display: flex; align-items: center; justify-content: center; gap: .8em; }
+.orn { display: inline-block; width: clamp(40px, 9vw, 120px); height: 1px; background: linear-gradient(90deg, transparent, rgba(216, 197, 155, .9)); position: relative; }
+.orn + .orn, .pre .orn:last-child { background: linear-gradient(270deg, transparent, rgba(216, 197, 155, .9)); }
+.orn::after { content: ""; position: absolute; top: -3px; width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid rgba(216, 197, 155, .9); right: -4px; }
+.pre .orn:last-child::after { right: auto; left: -4px; }
+.epic .game-title .main {
+  font-size: clamp(3.6rem, 15vw, 9.5rem); letter-spacing: .12em; padding-left: .12em; line-height: 1.1; margin: .06em 0 .04em;
+  background: linear-gradient(100deg, #8f7246 0%, #d8c59b 30%, #fff6dc 45%, #d8c59b 60%, #7d6038 100%);
+  background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 6px 30px rgba(0, 0, 0, .95)) drop-shadow(0 0 40px rgba(216, 160, 80, .25));
+}
+.hero-copy { margin: clamp(14px, 2.4vh, 26px) 0 0; font-size: clamp(1.05rem, 2.6vw, 1.5rem); letter-spacing: .32em; padding-left: .32em; color: #efe6d0; text-shadow: 0 2px 16px #000, 0 0 2px #000; }
+.button.play { gap: 12px; padding-left: 18px; }
+.tri { width: 0; height: 0; border-left: 10px solid currentColor; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.button.ghost { background: rgba(7, 9, 12, .4); border-color: rgba(216, 197, 155, .45); }
+.epic .release { background: rgba(7, 9, 12, .55); }
+@media (prefers-reduced-motion: no-preference) {
+  .epic .game-title .main { animation: shimmer 7s ease-in-out 1.2s infinite; }
+  @keyframes shimmer { 0%, 30% { background-position: 100% 0; } 70%, 100% { background-position: 0 0; } }
+  .js .epic .title-block > * { opacity: 0; transform: translateY(14px); animation: rise 1.4s cubic-bezier(.2, .7, .2, 1) forwards; }
+  .js .epic .title-block > :nth-child(2) { animation-delay: .35s; }
+  .js .epic .title-block > :nth-child(3) { animation-delay: .9s; }
+  .js .epic .hero-foot { opacity: 0; animation: rise 1.2s ease 1.4s forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+}
+
+/* ---------- 開幕の語り ---------- */
+.prologue { padding: clamp(80px, 14vw, 170px) 20px; text-align: center; background: radial-gradient(ellipse 60% 70% at 50% 50%, #111821 0%, var(--bg) 70%); }
+.prologue .line { margin: 0 auto; font-size: clamp(1.15rem, 3vw, 1.75rem); letter-spacing: .26em; padding-left: .26em; line-height: 2.6; color: #d9d0bb; }
+.prologue .line.strong { margin-top: .9em; font-size: clamp(1.5rem, 4.4vw, 2.6rem); color: var(--gold); letter-spacing: .3em; text-shadow: 0 0 30px rgba(216, 160, 80, .25); }
+.js .prologue .line:nth-child(2) { transition-delay: .25s; }
+.js .prologue .line:nth-child(3) { transition-delay: .5s; }
+.js .prologue .line:nth-child(4) { transition-delay: .9s; }
+
+/* ---------- 予告編 ---------- */
+.trailer { padding-top: clamp(40px, 6vw, 80px); }
+.screen { position: relative; max-width: 1120px; margin: 0 auto; border-radius: 6px; overflow: hidden; background: #000;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .8), 0 0 0 1px rgba(216, 197, 155, .22), 0 0 80px rgba(111, 183, 179, .08); }
+.screen video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; }
+.screen.tall { max-width: 420px; }
+.screen.tall video { aspect-ratio: 9 / 16; }
+
+/* ---------- 物語の大判 ---------- */
+.saga { padding: clamp(64px, 10vw, 120px) 0 clamp(64px, 10vw, 120px); }
+.saga .heading { padding: 0 20px; }
+.panel { position: relative; isolation: isolate; min-height: clamp(420px, 72vh, 760px); display: grid; align-items: end; overflow: hidden; }
+.panel + .panel { margin-top: 2px; }
+.panel-art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.panel::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(7, 9, 12, .92) 0%, rgba(7, 9, 12, .7) 32%, rgba(7, 9, 12, 0) 62%), linear-gradient(0deg, rgba(7, 9, 12, .6) 0%, rgba(7, 9, 12, 0) 40%); }
+.panel.right::before { background: linear-gradient(270deg, rgba(7, 9, 12, .92) 0%, rgba(7, 9, 12, .7) 32%, rgba(7, 9, 12, 0) 62%), linear-gradient(0deg, rgba(7, 9, 12, .6) 0%, rgba(7, 9, 12, 0) 40%); }
+.panel-text { max-width: 30em; margin: 0 0 0 clamp(20px, 7vw, 120px); padding: clamp(40px, 8vh, 90px) 0; }
+.panel.right .panel-text { margin: 0 clamp(20px, 7vw, 120px) 0 auto; }
+.chapter { position: relative; display: inline-grid; place-items: center; width: 54px; height: 54px; margin-bottom: 14px; color: var(--gold); font-size: 1.15rem; }
+.chapter::before { content: ""; position: absolute; inset: 9px; border: 1px solid rgba(216, 197, 155, .55); transform: rotate(45deg); }
+.panel-text h3 { margin: 0 0 16px; font-size: clamp(1.4rem, 3.4vw, 2.2rem); color: var(--gold); letter-spacing: .14em; line-height: 1.5; text-shadow: 0 2px 18px #000; }
+.panel-text p { margin: 0 0 1em; color: #e3dac6; text-shadow: 0 1px 10px #000; }
+.saga .quote { padding: 0 20px; }
+
+/* ---------- 物量 ---------- */
+.scale { padding: clamp(72px, 11vw, 140px) clamp(18px, 5vw, 40px); background:
+  radial-gradient(ellipse 70% 80% at 50% 50%, rgba(168, 137, 90, .12) 0%, rgba(7, 9, 12, 0) 70%), var(--bg); }
+.scale .stats { margin: 0; border: 0; }
+.scale .stats li + li { border-left: 1px solid rgba(216, 197, 155, .16); }
+.scale .stats strong { font-size: clamp(2.2rem, 6.4vw, 4.4rem); background: linear-gradient(180deg, #fff3d4, #d8c59b 55%, #8f7246); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.scale .stats strong small { -webkit-text-fill-color: var(--gold-deep); }
+.scale .stats li > span { font-size: .95rem; color: #cfc6b3; }
+.scale-note { margin: clamp(28px, 4vw, 44px) 0 0; text-align: center; color: var(--muted); letter-spacing: .18em; }
+
+/* ---------- 発売の幕 ---------- */
+.release-banner { position: relative; isolation: isolate; overflow: hidden; border-radius: 10px; margin-bottom: 30px; min-height: 380px; display: grid; place-items: center; text-align: center;
+  box-shadow: 0 0 0 1px rgba(216, 197, 155, .25), 0 30px 80px rgba(0, 0, 0, .6); }
+.banner-art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.release-banner::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(7, 9, 12, .55) 0%, rgba(7, 9, 12, .9) 100%); }
+.banner-text { padding: 48px 20px; }
+.banner-text .en { display: block; font-size: .78rem; letter-spacing: .5em; padding-left: .5em; color: var(--gold-deep); text-transform: uppercase; }
+.banner-text h2 { margin: 8px 0 6px; font-size: clamp(2rem, 6vw, 3.6rem); letter-spacing: .16em; padding-left: .16em; line-height: 1.4; color: var(--gold); text-shadow: 0 4px 24px #000; }
+.banner-sub { margin: 0 0 22px; color: #d9d0bb; letter-spacing: .14em; }
+.release-banner .price { margin: 0; }
+
+@media (max-width: 760px) {
+  .epic .game-title .main { letter-spacing: .08em; padding-left: .08em; }
+  .hero-copy { letter-spacing: .2em; padding-left: .2em; }
+  .kicker { letter-spacing: .4em; padding-left: .4em; }
+  .panel { min-height: 0; display: block; }
+  .panel-art { position: relative; inset: auto; height: auto; aspect-ratio: 3 / 2; }
+  .panel::before, .panel.right::before { inset: 0 0 auto 0; aspect-ratio: 3 / 2; height: auto; background: linear-gradient(0deg, var(--bg) 0%, rgba(7, 9, 12, 0) 45%); }
+  .panel-text, .panel.right .panel-text { margin: -56px 0 0; padding: 0 20px 36px; max-width: none; position: relative; }
+  .chapter { width: 44px; height: 44px; margin-bottom: 14px; }
+  .scale .stats li:nth-child(4) { border-left: 0; }
+  .prologue .line { letter-spacing: .14em; padding-left: .14em; }
 }
