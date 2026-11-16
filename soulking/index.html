@@ -24,11 +24,12 @@
 {"@context":"https://schema.org","@type":"VideoGame","name":"百の迷宮と 魂の王","alternateName":"Hundred Labyrinths: Rise of the Soul King","url":"https://deadsea-games.com/soulking/","image":"https://deadsea-games.com/assets/og.jpg","genre":"RPG","inLanguage":"ja","gamePlatform":["Windows","macOS","iOS"],"publisher":{"@type":"Organization","name":"Dead Sea Games"},"author":{"@type":"Organization","name":"Dead Sea Games"}}
 </script>
 </head>
-<body>
+<body class="cinema">
 <a class="skip" href="#main">本文へ</a>
 <nav class="site-nav" aria-label="サイト">
-  <a class="brand" href="/"><img src="/assets/favicon.svg" width="34" height="34" alt=""><span>Dead Sea Games</span></a>
+  <a class="brand" href="/"><img src="/assets/dead-sea-games.webp" width="2172" height="724" alt="Dead Sea Games"></a>
   <ul>
+    <li><a href="#trailer">予告編</a></li>
     <li><a href="#story">物語</a></li>
     <li><a href="#features">特徴</a></li>
     <li><a href="#buy">発売</a></li>
@@ -36,62 +37,117 @@
   </ul>
 </nav>
 
-<header class="hero game-hero">
-  <picture class="hero-art">
-    <source srcset="/assets/soulking/hero-tall.webp" media="(max-aspect-ratio: 1/1)" width="900" height="1350">
-    <img src="/assets/soulking/hero-wide.webp" width="1920" height="1280" alt="霧の墓所の先に開いた迷宮の門へ、灯りを手に歩む旅人" fetchpriority="high">
-  </picture>
+<header class="hero game-hero epic">
+  <div class="hero-art">
+    <picture>
+      <source srcset="/assets/soulking/hero-tall.webp" media="(max-aspect-ratio: 1/1)" width="900" height="1350">
+      <img src="/assets/soulking/hero-wide.webp" width="1920" height="1280" alt="霧の墓所の先に開いた迷宮の門へ、灯りを手に歩む旅人" fetchpriority="high">
+    </picture>
+  </div>
+  <canvas class="embers" aria-hidden="true"></canvas>
   <div class="hero-inner">
-    <h1 class="game-title">
-      <span class="pre">百の迷宮と</span>
-      <span class="main">魂の王</span>
-      <span class="en">Hundred Labyrinths: Rise of the Soul King</span>
-    </h1>
-    <div>
+    <div class="title-block">
+      <p class="kicker">Dead Sea Games presents</p>
+      <h1 class="game-title">
+        <span class="pre"><span class="orn" aria-hidden="true"></span>百の迷宮と<span class="orn" aria-hidden="true"></span></span>
+        <span class="main" data-text="魂の王">魂の王</span>
+        <span class="en">Hundred Labyrinths: Rise of the Soul King</span>
+      </h1>
+      <p class="hero-copy"><span class="nb">死者の魂を、</span><span class="nb">人の形に宿せ。</span></p>
+    </div>
+    <div class="hero-foot">
       <p class="release"><span><strong>2027年春</strong> 発売予定</span><span>Steam（Windows・Mac）</span><span>iPhone・iPad</span></p>
-      <p class="actions"><a class="button primary" href="#buy">第一章は無料で遊べます</a></p>
+      <p class="actions">
+        <a class="button primary play" href="#trailer"><span class="tri" aria-hidden="true"></span>予告編を見る</a>
+        <a class="button ghost" href="#buy">第一章は無料で遊べます</a>
+      </p>
     </div>
   </div>
 </header>
 
+<!-- 開幕の語り: 一行ずつ浮かび上がる -->
+<section class="prologue" aria-label="序">
+  <p class="line reveal"><span class="nb">ある夜、</span><span class="nb">国に百の迷宮が</span><span class="nb">口を開けた。</span></p>
+  <p class="line reveal">迷宮は、死者の魂を喰らう。</p>
+  <p class="line reveal"><span class="nb">生身の者は、</span><span class="nb">二度と還らない。</span></p>
+  <p class="line strong reveal"><span class="nb">ならば──</span><span class="nb">死者を送れ。</span></p>
+</section>
+
+<section class="section trailer" id="trailer" aria-labelledby="trailer-title">
+  <div class="wrap">
+    <div class="heading reveal"><span class="en">Trailer</span><h2 id="trailer-title">予告編</h2></div>
+    <div class="screen reveal">
+      <video controls playsinline preload="none" poster="/assets/soulking/trailer-poster.webp" width="1920" height="1080"
+        data-tall="/assets/soulking/trailer-vertical.mp4" data-tall-poster="/assets/soulking/trailer-poster-vertical.webp">
+        <source src="/assets/soulking/trailer.mp4" type="video/mp4">
+      </video>
+      <button class="play-big" type="button" aria-label="予告編を再生する（30秒・音が出ます）"><span class="ring" aria-hidden="true"></span><span class="label">予告編を再生</span></button>
+    </div>
+  </div>
+</section>
+
 <main id="main">
   <!-- 物語: 序章と第一章で明かされることだけを書く (後の章の秘密を先に出さない) -->
-  <section class="section" id="story" aria-labelledby="story-title">
+  <section class="saga" id="story" aria-labelledby="story-title">
+    <div class="heading reveal"><span class="en">Story</span><h2 id="story-title">物語</h2></div>
+
+    <article class="panel reveal">
+      <img class="panel-art" src="/assets/soulking/royal-audience.webp" width="1200" height="800" alt="玉座の王が、操霊師の手に魂の灯を託す" loading="lazy">
+      <div class="panel-text">
+        <span class="chapter">壱</span>
+        <h3><span class="nb">百の迷宮が</span><span class="nb">口を開けた国</span></h3>
+        <p>ある夜を境に、国のあちこちに迷宮が口を開けた。迷宮は死者の魂を喰らい、生身の人間が深みへ降りれば、二度と還らない。</p>
+        <p>王は、魂を繰る者──操霊師であるあなたを都へ召し、その手に死者の魂を託した。</p>
+      </div>
+    </article>
+
+    <article class="panel right reveal">
+      <img class="panel-art" src="/assets/soulking/irene-meeting.webp" width="1200" height="800" alt="蝋燭の灯る館で、イレーヌが操霊師を迎える" loading="lazy">
+      <div class="panel-text">
+        <span class="chapter">弐</span>
+        <h3>消えた師の名</h3>
+        <p>人業の館で、あなたはイレーヌと出会う。彼女は、行方を絶った師オルドから、弟子であるあなたの話を聞いていたという。</p>
+      </div>
+    </article>
+
+    <article class="panel reveal">
+      <img class="panel-art" src="/assets/soulking/first-vessel-awakening.webp" width="1200" height="800" alt="作業台に横たわる木の人形の胸に、緑の魂の灯がともる" loading="lazy">
+      <div class="panel-text">
+        <span class="chapter">参</span>
+        <h3><span class="nb">死者の魂を、</span><span class="nb">人業に宿して</span></h3>
+        <p>生きた者が還れないなら、生きていない者を送ればいい。人の形をした人形「人業（ドール）」に死者の魂を宿せば、迷宮の底でも戦える。</p>
+      </div>
+    </article>
+
+    <article class="panel right reveal">
+      <img class="panel-art" src="/assets/soulking/four-vessels-departure.webp" width="1200" height="800" alt="魂を宿した四体の人業が、夜の石段を降りていく" loading="lazy">
+      <div class="panel-text">
+        <span class="chapter">肆</span>
+        <h3>隊を組み、深みへ</h3>
+        <p>戦士、僧侶、盗賊──魂ひとつごとに、人業は別の誰かになる。あなたは隊を組み、師の残した手がかりを追って、迷宮の奥へ降りていく。</p>
+      </div>
+    </article>
+
+    <p class="quote reveal"><span class="nb">師はなぜ消えたのか。</span><span class="nb">迷宮はなぜ生まれたのか。</span><br><span class="nb">全十八章、113以上の迷宮の果てで、</span><span class="nb">その答えに辿り着く。</span></p>
+  </section>
+
+  <section class="scale" aria-labelledby="scale-title">
     <div class="wrap">
-      <div class="heading reveal"><span class="en">Story</span><h2 id="story-title">物語</h2></div>
-
-      <div class="story reveal">
-        <figure class="story-art"><img src="/assets/soulking/irene-meeting.webp" width="1200" height="800" alt="蝋燭の灯る館で、イレーヌが操霊師を迎える" loading="lazy"></figure>
-        <div class="story-text">
-          <h3>百の迷宮が口を開けた国</h3>
-          <p>ある夜を境に、国のあちこちに迷宮が口を開けた。迷宮は死者の魂を喰らい、生身の人間が深みへ降りれば、二度と還らない。</p>
-          <p>あなたは魂を繰る者、操霊師。王に召されて都へ着いたあなたは、人業の館でイレーヌと出会う。彼女は、行方を絶った師オルドから、弟子であるあなたの話を聞いていたという。</p>
-        </div>
-      </div>
-
-      <div class="story flip reveal">
-        <figure class="story-art"><img src="/assets/soulking/first-vessel-awakening.webp" width="1200" height="800" alt="作業台に横たわる木の人形の胸に、緑の魂の灯がともる" loading="lazy"></figure>
-        <div class="story-text">
-          <h3>死者の魂を、人業に宿して</h3>
-          <p>生きた者が還れないなら、生きていない者を送ればいい。人の形をした人形「人業（ドール）」に死者の魂を宿せば、迷宮の底でも戦える。</p>
-          <p>戦士、僧侶、盗賊──魂ひとつごとに、人業は別の誰かになる。あなたは隊を組み、師の残した手がかりを追って、迷宮の奥へ降りていく。</p>
-        </div>
-      </div>
-
-      <p class="quote reveal"><span class="nb">師はなぜ消えたのか。</span><span class="nb">迷宮はなぜ生まれたのか。</span><br><span class="nb">全十八章、113以上の迷宮の果てで、</span><span class="nb">その答えに辿り着く。</span></p>
+      <div class="heading reveal"><span class="en">Scale</span><h2 id="scale-title">圧倒的な物量</h2></div>
+      <ul class="stats reveal">
+        <li><strong><span class="count" data-to="113">113</span><small>以上</small></strong><span>迷宮</span></li>
+        <li><strong><span class="count" data-to="36">36</span><small>以上</small></strong><span>職業</span></li>
+        <li><strong><span class="count" data-to="2000">2,000</span><small>以上</small></strong><span>装備と道具</span></li>
+        <li><strong><span class="count" data-to="1000">1,000</span><small>以上</small></strong><span>技（スキル）</span></li>
+        <li><strong><span class="count" data-to="440">440</span><small>以上</small></strong><span>出来事</span></li>
+      </ul>
+      <p class="scale-note reveal"><span class="nb">全十八章。</span><span class="nb">物語を終えても、</span><span class="nb">無限迷宮と闘技場が待つ。</span></p>
     </div>
   </section>
 
   <section class="section tint" id="features" aria-labelledby="features-title">
     <div class="wrap">
       <div class="heading reveal"><span class="en">Features</span><h2 id="features-title">特徴</h2></div>
-      <ul class="stats reveal" aria-label="数で見る">
-        <li><strong>113<small>以上</small></strong><span>迷宮</span></li>
-        <li><strong>36<small>以上</small></strong><span>職業</span></li>
-        <li><strong>2,000<small>以上</small></strong><span>装備と道具</span></li>
-        <li><strong>1,000<small>以上</small></strong><span>技（スキル）</span></li>
-        <li><strong>440<small>以上</small></strong><span>出来事</span></li>
-      </ul>
       <ul class="features">
         <li class="feature wide reveal">
           <figure class="feature-art"><img src="/assets/soulking/explore.webp" width="1400" height="920" alt="探索の画面。石の床の通路に、めくったカードの魔物と、伏せたままのカードが並ぶ" loading="lazy"><figcaption>実際の探索画面</figcaption></figure>
@@ -168,8 +224,8 @@
     <div class="wrap">
       <div class="heading reveal"><span class="en">Gallery</span><h2 id="gallery-title">ギャラリー</h2></div>
       <ul class="gallery reveal">
-        <li><img src="/assets/soulking/royal-audience.webp" width="1200" height="800" alt="玉座の王が、操霊師の手に魂の灯を託す" loading="lazy"></li>
-        <li><img src="/assets/soulking/four-vessels-departure.webp" width="1200" height="800" alt="魂を宿した四体の人業が、夜の石段を降りていく" loading="lazy"></li>
+        <li><img src="/assets/soulking/bg-w02.webp" width="504" height="336" alt="燭台の灯る石の回廊" loading="lazy"></li>
+        <li><img src="/assets/soulking/bg-w07.webp" width="504" height="336" alt="崩れかけた古い砦の中" loading="lazy"></li>
         <li><img src="/assets/soulking/road-to-roadal.webp" width="1200" height="800" alt="灯の点る夜の街を見下ろす坂道に立つ旅人" loading="lazy"></li>
         <li><img src="/assets/soulking/bg-w01.webp" width="504" height="336" alt="石棺の並ぶ地下墓地" loading="lazy"></li>
         <li><img src="/assets/soulking/bg-w05.webp" width="504" height="336" alt="檻の吊るされた坑道" loading="lazy"></li>
@@ -180,8 +236,15 @@
 
   <section class="section" id="buy" aria-labelledby="buy-title">
     <div class="wrap">
-      <div class="heading reveal"><span class="en">Release</span><h2 id="buy-title">発売</h2></div>
-      <p class="price reveal"><strong>第一章は無料</strong><small>続きは製品版を一度買えば、最後の章まで遊べます（2,480円・予定）</small></p>
+      <div class="release-banner reveal">
+        <img class="banner-art" src="/assets/soulking/road-to-roadal.webp" width="1200" height="800" alt="" loading="lazy">
+        <div class="banner-text">
+          <span class="en">Release</span>
+          <h2 id="buy-title"><span class="nb">2027年春</span><span class="nb">発売予定</span></h2>
+          <p class="banner-sub">Steam（Windows・Mac）／ iPhone・iPad</p>
+          <p class="price"><strong>第一章は無料</strong><small>続きは製品版を一度買えば、最後の章まで遊べます（2,480円・予定）</small></p>
+        </div>
+      </div>
       <div class="stores">
         <section class="store reveal" aria-labelledby="steam-title">
           <h3 id="steam-title">Steam</h3>
@@ -235,7 +298,7 @@
 </main>
 
 <footer class="site-footer">
-  <img class="footer-logo" src="/assets/dead-sea-games.webp" width="1200" height="400" alt="" loading="lazy">
+  <img class="footer-logo" src="/assets/dead-sea-games.webp" width="2172" height="724" alt="" loading="lazy">
   <ul>
     <li><a href="/">ホーム</a></li>
     <li><a href="/contact/">お問い合わせ</a></li>
