@@ -74,9 +74,21 @@ if (counters.length && !calm && "IntersectionObserver" in window) {
 // 予告編: 縦長の画面 (スマホを縦に持った時) は縦型の動画に替える
 const trailer = document.querySelector(".screen video[data-tall]");
 if (trailer && matchMedia("(max-aspect-ratio: 4/5)").matches) {
-  trailer.querySelector("source").src = trailer.dataset.tall;
+  trailer.querySelector("source")?.remove();
   trailer.setAttribute("width", "1080"); trailer.setAttribute("height", "1920");
   if (trailer.dataset.tallPoster) trailer.poster = trailer.dataset.tallPoster;
-  trailer.load();
+  trailer.src = trailer.dataset.tall; // preload="none" なので、押すまで読み込まない
   trailer.closest(".screen").classList.add("tall");
+}
+
+// 予告編の再生: 大きな印、または扉の「予告編を見る」で音つきで再生する
+const screen = document.querySelector(".screen");
+if (screen) {
+  const video = screen.querySelector("video"), big = screen.querySelector(".play-big");
+  video.controls = false; // 押すまでは大きな印だけを見せ、再生が始まったら操作の帯を出す
+  const start = () => { screen.classList.add("playing"); video.controls = true; video.play().catch(() => {}); };
+  big?.addEventListener("click", start);
+  video.addEventListener("play", () => { screen.classList.add("playing"); video.controls = true; });
+  for (const a of document.querySelectorAll('a.play[href="#trailer"]')) a.addEventListener("click", () => start());
+  // 一覧などから #trailer で開いた時は、印を見せて押してもらう (音つきの自動再生はブラウザが止める)
 }
