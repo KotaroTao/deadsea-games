@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deadsea-games.com/sitemap.xml

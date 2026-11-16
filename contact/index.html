@@ -6,17 +6,25 @@
 <title>お問い合わせ — Dead Sea Games</title>
 <meta name="description" content="Dead Sea Games（株式会社ファンクション・ティ ゲーム部門）へのお問い合わせ。">
 <link rel="canonical" href="https://deadsea-games.com/contact/">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#07090c">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header class="site-header compact">
-  <a class="logo-link" href="../"><img src="../assets/dead-sea-games.webp" width="1200" height="400" alt="Dead Sea Games"></a>
-</header>
+<a class="skip" href="#main">本文へ</a>
+<nav class="site-nav" aria-label="サイト">
+  <a class="brand" href="/"><img src="/assets/favicon.svg" width="34" height="34" alt=""><span>Dead Sea Games</span></a>
+  <ul>
+    <li><a href="/soulking/">作品</a></li>
+    <li><a href="/#news">お知らせ</a></li>
+    <li><a href="/#studio">スタジオ</a></li>
+    <li><a href="/contact/" aria-current="page">お問い合わせ</a></li>
+  </ul>
+</nav>
 
-<main>
-  <section aria-labelledby="contact-title">
-    <h2 id="contact-title">お問い合わせ</h2>
+<main id="main" class="section">
+  <section class="wrap narrow" aria-labelledby="contact-title">
+    <div class="heading"><span class="en">Contact</span><h1 id="contact-title">お問い合わせ</h1></div>
     <p class="lead-left">ゲームについてのご質問・不具合のご報告・その他のご連絡は、こちらからお送りください。返信は入力いただいたメールアドレスへお送りします。</p>
     <form id="contact" class="contact-form" novalidate>
       <label>お問い合わせの種類
@@ -74,7 +82,12 @@
 </main>
 
 <footer class="site-footer">
-  <p><a href="../">ホーム</a> ・ <a href="https://soulking.deadsea-games.com/legal.html">利用規約・プライバシーポリシー</a></p>
+  <img class="footer-logo" src="/assets/dead-sea-games.webp" width="1200" height="400" alt="" loading="lazy">
+  <ul>
+    <li><a href="/">ホーム</a></li>
+    <li><a href="/soulking/">百の迷宮と 魂の王</a></li>
+    <li><a href="https://soulking.deadsea-games.com/legal.html">利用規約・プライバシーポリシー</a></li>
+  </ul>
   <p>© 2026 株式会社ファンクション・ティ / Dead Sea Games</p>
 </footer>
 <script src="contact.js" type="module"></script>
