@@ -85,9 +85,16 @@
   <section class="section tint" id="features" aria-labelledby="features-title">
     <div class="wrap">
       <div class="heading reveal"><span class="en">Features</span><h2 id="features-title">特徴</h2></div>
+      <ul class="stats reveal" aria-label="数で見る">
+        <li><strong>113</strong><span>迷宮</span></li>
+        <li><strong>36</strong><span>職業</span></li>
+        <li><strong>2,000<small>以上</small></strong><span>装備と道具</span></li>
+        <li><strong>1,000<small>以上</small></strong><span>技（スキル）</span></li>
+        <li><strong>440</strong><span>出来事</span></li>
+      </ul>
       <ul class="features">
         <li class="feature wide reveal">
-          <div class="feature-art"><img src="/assets/soulking/first-descent-gatekeeper.webp" width="1200" height="800" alt="迷宮の入口で、門番の騎士と魂を宿した人業たちが向き合う" loading="lazy"></div>
+          <figure class="feature-art"><img src="/assets/soulking/explore.webp" width="1400" height="920" alt="探索の画面。石の床の通路に、めくったカードの魔物と、伏せたままのカードが並ぶ" loading="lazy"><figcaption>実際の探索画面</figcaption></figure>
           <div class="feature-body">
             <span class="num">01</span>
             <h3>裏向きのカードをめくる迷宮探索</h3>
@@ -97,7 +104,7 @@
         <li class="feature reveal">
           <span class="num">02</span>
           <h3>魂を宿した六体の隊</h3>
-          <p>36の職業の魂を集め、人業に宿して隊を組む。どの魂を主に据え、どう並べるかで、同じ迷宮でも戦い方が変わる。</p>
+          <p>36の職業の魂を集め、人業に宿して隊を組む。技は1,000を超え、どの魂を主に据え、どう並べるかで、同じ迷宮でも戦い方が変わる。</p>
         </li>
         <li class="feature reveal">
           <span class="num">03</span>
@@ -107,7 +114,7 @@
         <li class="feature reveal">
           <span class="num">04</span>
           <h3>装備を集め、鍛える</h3>
-          <p>迷宮の深みほど珍しい装備が眠る。武器に宿る「武魂」、追加の特性、鍛え直し。拾った一振りを、自分の隊の要に育てる。</p>
+          <p>装備と道具は2,000種以上。迷宮の深みほど珍しい品が眠る。武器に宿る「武魂」、追加の特性、鍛え直しで、拾った一振りを隊の要に育てる。</p>
         </li>
         <li class="feature reveal">
           <span class="num">05</span>
@@ -131,19 +138,19 @@
   <section class="section" id="souls" aria-labelledby="souls-title">
     <div class="wrap">
       <div class="heading reveal"><span class="en">Souls &amp; Monsters</span><h2 id="souls-title">魂と魔物</h2></div>
-      <ul class="roster reveal" aria-label="職業の魂の一例">
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/crusader.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>聖戦士</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/archmage.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>大魔導</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/samurai.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>侍</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/bishop.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>司教</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/berserker.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>狂戦士</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/necromancer.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>死霊術師</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/dragonknight.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>竜騎士</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/arcthief.webp" width="260" height="336" alt="" loading="lazy"></div><figcaption>魔盗賊</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/sage.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>賢者</figcaption></figure></li>
-        <li><figure><div class="frame"><img src="/assets/soulking/jobs/asura.webp" width="360" height="368" alt="" loading="lazy"></div><figcaption>修羅</figcaption></figure></li>
+      <ul class="jobs reveal" aria-label="職業の魂の一例">
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/crusader.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>聖戦士<span class="role">前衛</span></h3><p>聖なる刃で魔を祓う剣士。打撃に光を重ね、自ら倒した不浄の魔物をよみがえらせない。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/archmage.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>大魔導<span class="role">後衛</span></h3><p>深淵の知識に至った術士。魔法への守りを貫く闇と土の呪文で、敵をまとめて砕く。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/samurai.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>侍<span class="role">前衛</span></h3><p>異国の剣術家。動く前の敵には先の太刀、動いた後の敵には返しの太刀。鉄をも斬る。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/bishop.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>司教<span class="role">後衛</span></h3><p>魔と聖の両道を究めた異端者。品の鑑定を担い、聖水の技で攻めと癒しを使い分ける。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/berserker.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>狂戦士<span class="role">前衛</span></h3><p>狂気で戦う剛の者。血を見るほど力が増し、倒した敵の余波でほかの敵まで傷つける。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/necromancer.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>死霊術師<span class="role">後衛</span></h3><p>死の理を学んだ術士。闇の呪文で敵の命を吸い、呪いで弱らせてから仕留める。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/dragonknight.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>竜騎士<span class="role">前衛</span></h3><p>竜と盟約を結んだ騎士。竜鱗で守りを固め、高く跳んで槍を突き立て、息吹で敵全体を焼く。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/arcthief.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>魔盗賊<span class="role">後衛</span></h3><p>呪文を盗むように操る術士。敵の呪文に魔の一撃で応え、奪った魔力で戦い続ける。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/sage.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>賢者<span class="role">後衛</span></h3><p>魔と聖の理を識り尽くした者。攻めと癒しを兼ね、時の流れに働きかけてもう一度動く。</p></div></li>
+        <li class="job"><div class="frame"><img src="/assets/soulking/jobs/asura.webp" width="360" height="368" alt="" loading="lazy"></div><div class="job-body"><h3>修羅<span class="role">前衛</span></h3><p>戦いをやめられなかった武芸者。二本の刃を振るい、手数で押し切る。</p></div></li>
       </ul>
-      <p class="roster-note reveal">魂は育つほど姿を変える。職業は全部で36。</p>
+      <p class="roster-note reveal">魂は育つほど姿と名を変える。職業は全部で36。</p>
 
       <h3 class="sub-heading reveal">迷宮に巣くうもの</h3>
       <ul class="roster beasts reveal" aria-label="魔物の一例">
@@ -198,7 +205,7 @@
           <dt>対応機種</dt><dd>Steam（Windows・Mac）、iPhone・iPad</dd>
           <dt>発売</dt><dd>2027年春 予定</dd>
           <dt>価格</dt><dd>第一章まで無料。製品版 2,480円（予定）</dd>
-          <dt>ボリューム</dt><dd>全十八章・113の迷宮</dd>
+          <dt>ボリューム</dt><dd>全十八章・113の迷宮。職業36、技1,000種以上、装備と道具2,000種以上</dd>
           <dt>言語</dt><dd>日本語</dd>
           <dt>開発・販売</dt><dd>Dead Sea Games（株式会社ファンクション・ティ）</dd>
         </dl>
