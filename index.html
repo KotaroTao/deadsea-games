@@ -5,55 +5,111 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dead Sea Games — 株式会社ファンクション・ティ ゲーム部門</title>
 <meta name="description" content="Dead Sea Games は株式会社ファンクション・ティのゲーム部門です。ダークファンタジーRPG「百の迷宮と 魂の王」を制作しています。">
+<meta name="theme-color" content="#07090c">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Dead Sea Games">
 <meta property="og:title" content="Dead Sea Games">
 <meta property="og:description" content="株式会社ファンクション・ティのゲーム部門。ダークファンタジーRPG「百の迷宮と 魂の王」を制作しています。">
 <meta property="og:url" content="https://deadsea-games.com/">
 <meta property="og:image" content="https://deadsea-games.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://deadsea-games.com/">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="/assets/soulking/hero-wide.webp" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" as="image" href="/assets/soulking/hero-tall.webp" media="(max-aspect-ratio: 1/1)">
+<link rel="stylesheet" href="/style.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="/site.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Dead Sea Games","url":"https://deadsea-games.com/","logo":"https://deadsea-games.com/assets/dead-sea-games.webp","parentOrganization":{"@type":"Organization","name":"株式会社ファンクション・ティ"}}
+</script>
 </head>
 <body>
-<header class="site-header">
-  <h1 class="logo"><img src="assets/dead-sea-games.webp" width="1200" height="400" alt="Dead Sea Games"></h1>
-  <p class="lead"><span>株式会社ファンクション・ティの</span><span>ゲーム部門です。</span> <span>闇と魂をめぐる物語を、</span><span>ブラウザで遊べるゲームとして</span><span>届けます。</span></p>
+<a class="skip" href="#main">本文へ</a>
+<nav class="site-nav" aria-label="サイト">
+  <a class="brand" href="/"><img src="/assets/favicon.svg" width="34" height="34" alt=""><span>Dead Sea Games</span></a>
+  <ul>
+    <li><a href="/soulking/">作品</a></li>
+    <li><a href="#news">お知らせ</a></li>
+    <li><a href="#studio">スタジオ</a></li>
+    <li><a href="/contact/">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <picture class="hero-art">
+    <source srcset="/assets/soulking/hero-tall.webp" media="(max-aspect-ratio: 1/1)" width="900" height="1350">
+    <img src="/assets/soulking/hero-wide.webp" width="1920" height="1280" alt="" fetchpriority="high">
+  </picture>
+  <div class="hero-inner">
+    <h1 class="logo"><img src="/assets/dead-sea-games.webp" width="1200" height="400" alt="Dead Sea Games"></h1>
+    <p class="tagline"><span class="nb">闇の底に、</span><span class="nb">灯をともす物語を。</span></p>
+    <p class="sub"><span class="nb">株式会社ファンクション・ティの</span><span class="nb">ゲーム部門です。</span></p>
+  </div>
+  <a class="scroll-cue" href="#works">SCROLL</a>
 </header>
 
-<main>
-  <section class="works" aria-labelledby="works-title">
-    <h2 id="works-title">作品</h2>
-    <article class="work">
-      <a class="work-art" href="https://soulking.deadsea-games.com/">
-        <img src="assets/soulking-keyart.webp" width="1600" height="1067" alt="霧の墓所の先に開いた迷宮の門へ、灯りを手に歩む旅人" loading="lazy">
-      </a>
-      <div class="work-body">
-        <h3>百の迷宮と 魂の王<span class="en">Hundred Labyrinths: Rise of the Soul King</span></h3>
-        <p class="tags"><span>ダークファンタジーRPG</span><span>ブラウザ・スマホ対応</span></p>
-        <p>死者の魂を喰らう百の迷宮。生身の人間は還れないその深淵へ、人型の器「人業（ドール）」に死者の魂を宿して挑む。あなたは魂を繰る者、操霊師。</p>
-        <p>裏向きのカードをめくって迷宮を進み、魂を宿した人業の隊で魔物と戦う、昔ながらの迷宮探索RPGです。全十八章・113の迷宮で、消えた師を捜す物語が完結します。</p>
-        <p class="note">製品版は準備中です。</p>
-        <p class="actions">
-          <a class="button primary" href="https://soulking.deadsea-games.com/">ブラウザで遊ぶ</a>
-          <a class="button" href="https://soulking.deadsea-games.com/legal.html">利用規約・プライバシーポリシー</a>
-        </p>
-      </div>
-    </article>
+<main id="main">
+  <section class="section" id="works" aria-labelledby="works-title">
+    <div class="wrap">
+      <div class="heading reveal"><span class="en">Works</span><h2 id="works-title">作品</h2></div>
+      <article class="work reveal">
+        <a class="work-art" href="/soulking/" tabindex="-1" aria-hidden="true">
+          <img src="/assets/soulking/four-vessels-departure.webp" width="1200" height="800" alt="" loading="lazy">
+        </a>
+        <div class="work-body">
+          <h3>百の迷宮と 魂の王<span class="en">Hundred Labyrinths: Rise of the Soul King</span></h3>
+          <ul class="tags">
+            <li>ダークファンタジーRPG</li>
+            <li>Steam（Windows・Mac）</li>
+            <li>iPhone・iPad</li>
+            <li class="accent">2027年春 発売予定</li>
+          </ul>
+          <p>死者の魂を喰らう百の迷宮。生身の人間は還れないその深淵へ、人の形をした人形「人業（ドール）」に死者の魂を宿して挑む。あなたは魂を繰る者、操霊師。</p>
+          <p class="muted">全十八章・113の迷宮で、消えた師を捜す物語が完結します。第一章は無料で遊べます。</p>
+          <p class="actions">
+            <a class="button primary" href="/soulking/">作品を見る</a>
+          </p>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <section class="about" aria-labelledby="about-title">
-    <h2 id="about-title">運営</h2>
-    <dl>
-      <dt>名称</dt><dd>Dead Sea Games（株式会社ファンクション・ティ ゲーム部門）</dd>
-      <dt>運営会社</dt><dd>株式会社ファンクション・ティ</dd>
-      <dt>お問い合わせ</dt><dd><a href="contact/">お問い合わせフォーム</a></dd>
-    </dl>
+  <section class="section tint" id="news" aria-labelledby="news-title">
+    <div class="wrap narrow">
+      <div class="heading reveal"><span class="en">News</span><h2 id="news-title">お知らせ</h2></div>
+      <ul class="news reveal">
+        <li><time datetime="2026-11-16">2026.11.16</time><p>ホームページを新しくしました。<a href="/soulking/">「百の迷宮と 魂の王」の紹介ページ</a>を公開しました。</p></li>
+        <li><time datetime="2026-11-15">2026.11.15</time><p>「百の迷宮と 魂の王」は Steam と App Store で発売します。どちらも第一章を無料で遊べ、製品版を一度買えば最後の章まで遊べます。</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="studio" aria-labelledby="studio-title">
+    <div class="wrap narrow">
+      <div class="heading reveal"><span class="en">Studio</span><h2 id="studio-title">スタジオ</h2></div>
+      <div class="prose reveal">
+        <p>Dead Sea Games は、株式会社ファンクション・ティのゲーム部門です。生き物の棲めない海の名のとおり、光の届かない場所を舞台に、闇と魂をめぐる物語を作っています。</p>
+        <p>広告や、遊ぶほどに払わされる仕組みに頼らず、一度買えば最後まで遊べるゲームを届けることを大切にしています。</p>
+      </div>
+      <dl class="facts reveal">
+        <dt>名称</dt><dd>Dead Sea Games</dd>
+        <dt>運営会社</dt><dd>株式会社ファンクション・ティ</dd>
+        <dt>事業</dt><dd>ゲームの企画・開発・販売</dd>
+        <dt>作品</dt><dd><a href="/soulking/">百の迷宮と 魂の王</a></dd>
+        <dt>お問い合わせ</dt><dd><a href="/contact/">お問い合わせフォーム</a></dd>
+      </dl>
+    </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <p><a href="contact/">お問い合わせ</a> ・ <a href="https://soulking.deadsea-games.com/legal.html">利用規約・プライバシーポリシー</a></p>
+  <img class="footer-logo" src="/assets/dead-sea-games.webp" width="1200" height="400" alt="" loading="lazy">
+  <ul>
+    <li><a href="/soulking/">百の迷宮と 魂の王</a></li>
+    <li><a href="/contact/">お問い合わせ</a></li>
+    <li><a href="https://soulking.deadsea-games.com/legal.html">利用規約・プライバシーポリシー</a></li>
+  </ul>
   <p>© 2026 株式会社ファンクション・ティ / Dead Sea Games</p>
 </footer>
 </body>
