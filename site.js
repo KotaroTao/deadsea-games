@@ -71,24 +71,29 @@ if (counters.length && !calm && "IntersectionObserver" in window) {
   counters.forEach((el) => io.observe(el));
 }
 
-// 予告編: 縦長の画面 (スマホを縦に持った時) は縦型の動画に替える
-const trailer = document.querySelector(".screen video[data-tall]");
-if (trailer && matchMedia("(max-aspect-ratio: 4/5)").matches) {
-  trailer.querySelector("source")?.remove();
-  trailer.setAttribute("width", "1080"); trailer.setAttribute("height", "1920");
-  if (trailer.dataset.tallPoster) trailer.poster = trailer.dataset.tallPoster;
-  trailer.src = trailer.dataset.tall; // preload="none" なので、押すまで読み込まない
-  trailer.closest(".screen").classList.add("tall");
-}
-
-// 予告編の再生: 大きな印、または扉の「予告編を見る」で音つきで再生する
+// 予告編: トレイラー (1分30秒・横型) と CM (30秒。縦に持ったスマホでは縦型) を切り替える。preload="none" なので押すまで読み込まない
+const REELS = {
+  trailer: { src: "/assets/soulking/trailer-90s.mp4", poster: "/assets/soulking/trailer-90s-poster.webp", label: "トレイラー", len: "1分30秒" },
+  cm: { src: "/assets/soulking/trailer.mp4", poster: "/assets/soulking/trailer-poster.webp", label: "CM", len: "30秒",
+    tall: "/assets/soulking/trailer-vertical.mp4", tallPoster: "/assets/soulking/trailer-poster-vertical.webp" },
+};
 const screen = document.querySelector(".screen");
 if (screen) {
   const video = screen.querySelector("video"), big = screen.querySelector(".play-big");
+  const portrait = matchMedia("(max-aspect-ratio: 4/5)").matches;
+  const setReel = (key) => {
+    const r = REELS[key], tall = portrait && r.tall;
+    video.pause(); video.querySelector("source")?.remove();
+    video.poster = tall ? r.tallPoster : r.poster; video.src = tall ? r.tall : r.src;
+    video.setAttribute("width", tall ? "1080" : "1920"); video.setAttribute("height", tall ? "1920" : "1080");
+    screen.classList.toggle("tall", !!tall); screen.classList.remove("playing"); video.controls = false;
+    if (big) { big.querySelector(".label").textContent = r.label + "を再生"; big.setAttribute("aria-label", `${r.label}を再生する（${r.len}・音が出ます）`); }
+    for (const t of document.querySelectorAll("[data-reel]")) t.setAttribute("aria-selected", String(t.dataset.reel === key));
+  };
+  for (const t of document.querySelectorAll("[data-reel]")) t.addEventListener("click", () => setReel(t.dataset.reel));
   video.controls = false; // 押すまでは大きな印だけを見せ、再生が始まったら操作の帯を出す
   const start = () => { screen.classList.add("playing"); video.controls = true; video.play().catch(() => {}); };
   big?.addEventListener("click", start);
   video.addEventListener("play", () => { screen.classList.add("playing"); video.controls = true; });
   for (const a of document.querySelectorAll('a.play[href="#trailer"]')) a.addEventListener("click", () => start());
-  // 一覧などから #trailer で開いた時は、印を見せて押してもらう (音つきの自動再生はブラウザが止める)
 }

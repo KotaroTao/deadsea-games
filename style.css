@@ -474,3 +474,12 @@ body.cinema::after {
   .sys-row.flip .sys-shot { order: 0; }
   .sys-shot, .sys-row.flip .sys-shot { transform: none; }
 }
+
+/* 予告編の切り替え (トレイラー / CM) */
+.reel-tabs { display: flex; justify-content: center; gap: 10px; margin: -12px 0 22px; }
+.reel-tabs button { display: inline-flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 8px 20px; border: 1px solid var(--line); border-radius: 99px;
+  background: rgba(16, 20, 26, .7); color: var(--muted); font: inherit; font-size: .95rem; letter-spacing: .12em; cursor: pointer; }
+.reel-tabs button small { font-size: .74rem; letter-spacing: .06em; }
+.reel-tabs button[aria-selected="true"] { color: var(--gold); border-color: rgba(216, 197, 155, .6); background: rgba(45, 58, 51, .5); }
+.reel-tabs button:hover { border-color: var(--gold); }
+.reel-note { margin: 16px auto 0; text-align: center; color: var(--muted); font-size: .82rem; }

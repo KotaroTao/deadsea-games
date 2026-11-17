@@ -77,13 +77,17 @@
 <section class="section trailer" id="trailer" aria-labelledby="trailer-title">
   <div class="wrap">
     <div class="heading reveal"><span class="en">Trailer</span><h2 id="trailer-title">予告編</h2></div>
-    <div class="screen reveal">
-      <video controls playsinline preload="none" poster="/assets/soulking/trailer-poster.webp" width="1920" height="1080"
-        data-tall="/assets/soulking/trailer-vertical.mp4" data-tall-poster="/assets/soulking/trailer-poster-vertical.webp">
-        <source src="/assets/soulking/trailer.mp4" type="video/mp4">
-      </video>
-      <button class="play-big" type="button" aria-label="予告編を再生する（30秒・音が出ます）"><span class="ring" aria-hidden="true"></span><span class="label">予告編を再生</span></button>
+    <div class="reel-tabs reveal" role="tablist" aria-label="映像の種類">
+      <button type="button" role="tab" aria-selected="true" data-reel="trailer">トレイラー<small>1分30秒</small></button>
+      <button type="button" role="tab" aria-selected="false" data-reel="cm">CM<small>30秒</small></button>
     </div>
+    <div class="screen reveal">
+      <video controls playsinline preload="none" poster="/assets/soulking/trailer-90s-poster.webp" width="1920" height="1080">
+        <source src="/assets/soulking/trailer-90s.mp4" type="video/mp4">
+      </video>
+      <button class="play-big" type="button" aria-label="トレイラーを再生する（1分30秒・音が出ます）"><span class="ring" aria-hidden="true"></span><span class="label">トレイラーを再生</span></button>
+    </div>
+    <p class="reel-note reveal">実際のプレイ画面を含みます。開発中の画面のため、発売時には変わることがあります。</p>
   </div>
 </section>
 
