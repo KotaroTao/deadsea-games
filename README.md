@@ -1,6 +1,6 @@
 # deadsea-games
 
-Dead Sea Games（株式会社ファンクション・ティ ゲーム部門）のホームページ。https://deadsea-games.com/
+Dead Sea Games（運営: 株式会社ファンクション・ティ）のホームページ。https://deadsea-games.com/
 
 素の HTML と CSS（と小さな JS）だけのページで、ビルドは無い。GitHub Pages の main ブランチ直下から公開する（`CNAME` に独自ドメイン）。
 
